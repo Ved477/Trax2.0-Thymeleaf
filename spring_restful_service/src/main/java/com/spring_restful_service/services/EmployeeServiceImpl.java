@@ -21,8 +21,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee createEmployee(Employee employee) {
-		return this.empRepo.save(employee);
+	public void createEmployee(Employee employee) {
+		empRepo.save(employee);
 	}
 
 	@Override

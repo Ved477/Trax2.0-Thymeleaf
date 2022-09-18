@@ -8,7 +8,7 @@ public interface EmployeeService {
 
 	public List<Employee> getEmployee();
 
-	public Employee createEmployee(Employee employee);
+	public void createEmployee(Employee employee);
 
 	public Employee getOneEmployee(long empId);
 
