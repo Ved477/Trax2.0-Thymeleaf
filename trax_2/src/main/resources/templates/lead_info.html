@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -25,6 +25,13 @@
 	</div>
 	<div>
 		Mobile : <strong th:text="${lead.mobile}"></strong>
+	</div>
+	
+	<div>
+		<form action="composeEmail" method="post">
+			<input type="hidden" name="email" th:value="${lead.email}"/>
+			<input type="submit" value="Send Email">
+		</form>
 	</div>
 </body>
 </html>
