@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Lead | Create</title>
+</head>
+<body>
+	<h2>Lead | Create</h2>
+	<hr>
+	
+	<div th:text="${msg}"></div>
+	
+	<div>
+		<form action="saveLead" method="post">
+			<div>
+				<strong>First Name</strong><input type="text" name="firstName" />
+			</div>
+			<div>
+				<strong>Last Name</strong><input type="text" name="lastName" />
+			</div>
+			<div>
+				<strong>Lead Source</strong> <select name="leadSource" >
+					<option value=" "></option>
+					<option value="radio">Radio Channel</option>
+					<option value="newspaper">News Paper</option>
+					<option value="tv">TV</option>
+					<option value="online">Online</option>
+				</select>
+			</div>
+			<div>
+				<strong>Email</strong><input type="email" name="email" />
+			</div>
+			<div>
+				<strong>Mobile</strong><input type="tel" name="mobile" />
+			</div>
+			<div>
+				<input type="submit" value="Save"/>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
