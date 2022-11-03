@@ -48,6 +48,29 @@ public class LeadController {
 		return "list_all_leads";
 	}
 	
+	@RequestMapping("/leads/{leadId}/deleteLead")
+	public String deleteLead(@PathVariable("leadId") long id, ModelMap model) {
+		leadService.deleteLeadById(id);
+		List<Lead> leads = leadService.getAllLeads();
+		model.addAttribute("leads", leads);
+		return "list_all_leads";
+	}
+	
+	@RequestMapping("/leads/{leadId}/updateLeadPage")
+	public String updateLeadPage(@PathVariable("leadId") long id, Model model) {
+		Lead lead = leadService.findLeadById(id);
+		model.addAttribute("lead", lead);
+		return "update_lead";
+	}
+	
+	@RequestMapping("/updateLead")
+	public String updateLead(@ModelAttribute Lead lead, Model model) {
+		leadService.updateLead(lead);
+		List<Lead> leads = leadService.getAllLeads();
+		model.addAttribute("leads", leads);
+		return "list_all_leads";
+	}
+	
 	@RequestMapping("/leadInfo/{id}/info")
 	public String leadInfo(@PathVariable("id") long id, ModelMap model) {
 		Lead lead = leadService.findLeadById(id);

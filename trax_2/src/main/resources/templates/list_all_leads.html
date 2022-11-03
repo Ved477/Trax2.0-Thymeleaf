@@ -26,6 +26,8 @@
 			<th>Lead Source</th>
 			<th>Email</th>
 			<th>Mobile</th>
+			<th>Delete</th>
+			<th>Update</th>
 		</tr>
 			<tr th:each="lead : ${leads}">
 			<td th:text="${lead.id}"></td>
@@ -34,6 +36,8 @@
 			<td th:text="${lead.leadSource}"></td>
 			<td th:text="${lead.email}"></td>
 			<td th:text="${lead.mobile}"></td>
+			<td><a th:href="@{/leads/{leadId}/deleteLead(leadId = ${lead.id})}">Delete</a></td>
+			<td><a th:href="@{/leads/{leadId}/updateLeadPage(leadId = ${lead.id})}">Update</a></td>
 		</tr>
 	</table>
 </body>

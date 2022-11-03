@@ -16,4 +16,6 @@ public interface LeadService {
 
 	public List<Lead> searchLead(String query);
 
+	public void updateLead(Lead lead);
+
 }

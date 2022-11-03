@@ -42,6 +42,11 @@ public class LeadServiceImpl implements LeadService {
 		List<Lead> leads = leadRepo.searchLead(query);
 		return leads;
 	}
+
+	@Override
+	public void updateLead(Lead lead) {
+		leadRepo.save(lead);
+	}
 		
 
 }
