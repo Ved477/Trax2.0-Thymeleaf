@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>All Contacts</title>
+<script>
+    function rowClicked(value) {
+        location.href = "/trax2/contactInfo/" + value +"/info";
+    }
+</script>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+	<h2>All Contacts</h2>
+	
+	<form action="searchContact" method="post">
+		<input type="text" name="query"/> <input type="submit" value="Search"/>
+	</form>
+	
+	<hr />
+	
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>First Name</th>
+			<th>Last name</th>
+			<th>Lead Source</th>
+			<th>Email</th>
+			<th>Mobile</th>
+			<th>Billing</th>
+		</tr>
+		<tr th:each="contact : ${contacts}">
+			<td th:text="${contact.id}"></td>
+			<td style="cursor: pointer" th:onclick="'javascript:rowClicked(\'' + ${contact.id} + '\');'" th:text="${contact.firstName}"></td>
+			<td th:text="${contact.lastName}"></td>
+			<td th:text="${contact.leadSource}"></td>
+			<td th:text="${contact.email}"></td>
+			<td th:text="${contact.mobile}"></td>
+			<td><a th:href="@{/createBill/{bid}/bill(bid=${contact.id})}">billing</a></td>
+		</tr>
+	</table>
+</body>
+</html>

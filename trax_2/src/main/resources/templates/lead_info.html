@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<h2>Lead | Info </h2>
 	<hr />
 	
@@ -28,9 +29,15 @@
 	</div>
 	
 	<div>
-		<form action="composeEmail" method="post">
+		<form th:action="@{/composeEmail}" method="post">
 			<input type="hidden" name="email" th:value="${lead.email}"/>
 			<input type="submit" value="Send Email">
+		</form>
+	</div>
+	<div>
+		<form th:action="@{/convertLead}" method="post">
+			<input type="hidden" name="id" th:value="${lead.id}"/>
+			<input type="submit" value="Convert">
 		</form>
 	</div>
 </body>

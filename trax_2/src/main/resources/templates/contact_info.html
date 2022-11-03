@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Contact | Info</title>
+</head>
+<body>
+
+	<h2>Contact | Info </h2>
+	<hr />
+	
+	<div>
+		Contact Id : <strong th:text="${contact.id}"></strong>
+	</div>
+	<div>
+		First Name : <strong th:text="${contact.firstName}"></strong>
+	</div>
+	<div>
+		Last Name : <strong th:text="${contact.lastName}"></strong>
+	</div>
+	<div>
+		Lead Source : <strong th:text="${contact.leadSource}"></strong>
+	</div>
+	<div>
+		Email : <strong th:text="${contact.email}"></strong>
+	</div>
+	<div>
+		Mobile : <strong th:text="${contact.mobile}"></strong>
+	</div>
+	
+	<div>
+		<form th:action="@{/composeEmail}" method="post">
+			<input type="hidden" name="email" th:value="${contact.email}"/>
+			<input type="submit" value="Send Email">
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>All Leads</title>
+<script>
+    function rowClicked(value) {
+        location.href = "/trax2/leadInfo/" + value +"/info";
+    }
+</script>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+	<h2>All Leads</h2>
+	
+	<form action="searchLead" method="post">
+		<input type="text" name="query"/><input type="submit" value="Search"/>
+	</form>
+	<hr />
+	
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>First Name</th>
+			<th>Last name</th>
+			<th>Lead Source</th>
+			<th>Email</th>
+			<th>Mobile</th>
+		</tr>
+			<tr th:each="lead : ${leads}">
+			<td th:text="${lead.id}"></td>
+			<td style="cursor: pointer" th:onclick="'javascript:rowClicked(\'' + ${lead.id} + '\');'" th:text="${lead.firstName}"></td>
+			<td th:text="${lead.lastName}"></td>
+			<td th:text="${lead.leadSource}"></td>
+			<td th:text="${lead.email}"></td>
+			<td th:text="${lead.mobile}"></td>
+		</tr>
+	</table>
+</body>
+</html>
